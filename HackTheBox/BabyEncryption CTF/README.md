@@ -1,5 +1,5 @@
-BabyEncryption CTF
-==================
+BabyEncryption
+==============
 
 Growing up, I never have been great at math, this one really made me look deep and find out decryption works in tools.
 
