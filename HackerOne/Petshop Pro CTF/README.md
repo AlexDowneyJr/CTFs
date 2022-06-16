@@ -13,7 +13,7 @@ As you can see on BurpSuite, we get the whole entry for checkout and can try sen
 
 ![Image](images/2.png)
 
-e create an entry that looks something like this and URL encode it: `[[0, {"logo": "kitten.jpg", "price": -8.95, "name": "Kitten", "desc": "8\"x10\" color glossy photograph of a kitten."}]]`
+We create an entry that looks something like this and URL encode it: `[[0, {"logo": "kitten.jpg", "price": -8.95, "name": "Kitten", "desc": "8\"x10\" color glossy photograph of a kitten."}]]`
 
 As you can see on BurpSuite, you get the first flag.
 
