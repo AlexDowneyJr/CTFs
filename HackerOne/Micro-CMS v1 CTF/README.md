@@ -16,23 +16,25 @@ We see here that page/7 is Forbidden, lets keep this in mind and look at it late
 
 The Create page helps you create more web pages using HTML with Markdown support and tells us that scripts are not supported, lets confirm that.
  
-So I decided to add this bit of XSS payload to every available input `<IFRAME SRC="javascript:javascript:alert(1);"></IFRAME>` and added a button to try mask it too (Only doing it to the title works, but I didn't want to take chances), lets try saving this
- 
+So I decided to add this bit of XSS payload to every available input `<IFRAME SRC="javascript:javascript:alert(1);"></IFRAME>` and added a button to try mask it too (Only doing it to the title works, but I didn't want to take chances), lets try saving this:
+
+![Image](images/4.png)
+
 We see something like this:
  
-![Image](images/4.png)
+![Image](images/5.png)
  
 And if we go to the main page then we get the first flag.
  
 If we see the Markdown Test page again, we see that we are able to edit that page, lets see if we can do something there:
  
-![Image](images/5.png)
+![Image](images/6.png)
  
 We have another editable value available in the URL at /page/edit/VALUE, lets try to put the value 7 since it was shown as forbidden earlier. This will show you the second flag
  
 In the edit page itself, we can test for SQL injection in the /page/edit/VALUE parameter by using `'` like this:
 
-![Image](images/6.png)
+![Image](images/7.png)
 
 Doing this will show you the third flag.
 
