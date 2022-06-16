@@ -8,9 +8,9 @@ In the Testing page, this shows up:
 
 ![Image](images/2.png)
 
-In the url, we see a page/VALUE which indicates that each page in this web app has a page number and we can there might be something to see here. Start from 0 and change the value to check if we can view something we aren't supposed to see.
+In the url, we see a `page/VALUE` which indicates that each page in this web app has a page number and we can there might be something to see here. Start from 0 and change the value to check if we can view something we aren't supposed to see.
 
-We see here that page/7 is Forbidden, lets keep this in mind and look at it later:
+We see here that `page/7` is Forbidden, lets keep this in mind and look at it later:
 
 ![Image](images/3.png)
 
@@ -30,9 +30,9 @@ If we see the Markdown Test page again, we see that we are able to edit that pag
  
 ![Image](images/6.png)
  
-We have another editable value available in the URL at /page/edit/VALUE, lets try to put the value 7 since it was shown as forbidden earlier. This will show you the second flag
+We have another editable value available in the URL at `/page/edit/VALUE`, lets try to put the value 7 since it was shown as forbidden earlier. This will show you the second flag
  
-In the edit page itself, we can test for SQL injection in the /page/edit/VALUE parameter by using `'` like this:
+In the edit page itself, we can test for SQL injection in the `/page/edit/VALUE` parameter by using `'` like this:
 
 ![Image](images/7.png)
 
