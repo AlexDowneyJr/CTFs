@@ -1,3 +1,6 @@
+Canvas
+======
+
 Canvas is a really nice "feel good" CTF that really brought me back to when I was studying programming, not that I would do it anymore, but it still felt nice.
 
 Once you download the given files, you are provided with a pair of `.html`, a `.css` and a `.js` file. They are a pretty straightforward login page and dashboard config. If you open the source code of index.html, you see this:
