@@ -33,7 +33,9 @@ bash -c 'echo $((WHAT_YOU_TYPE))'
 
 Great, now that we know that, lets think about how we can break this. There are 2 ways that I know of, but I don't know the true logic behind. I will show both the methods and give an explaination which I think makes sense but if there are corrections, please go ahead and lemme know.
 
-Method 1: (Easy way)
+
+
+### Method 1: (Easy way)
 
 `echo $(( expression ))` is used to print an arithmetic expression. But, for some reason, if you make the command like this `echo $(( expression) )`, it will run the expression as a command. My guess is that the `$()` is used to subsitute a command and because of that, it looks for the first semblance of a command and tries to run that due to the the last ` )` has a space in between and doesn't register as an arithmetic expression. Regardless, you will ask why this is important because spaces are illegal. Tab spaces aren't, so you will make your payload look something like this:
 
@@ -51,7 +53,9 @@ You can find the flag in the `/` directory. To read the flag, make a command tha
 cat	/flag.txt)	)	#
 ```
 
-Method 2: (Slightly more complicated)
+
+
+### Method 2: (Slightly more complicated)
 
 We can go off the previous knowledge but instead of tab spaces, we will use the other legal special characters, namely the <, { } and the \ character.
 
