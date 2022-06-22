@@ -49,7 +49,7 @@ bash aaa.sh 71.zip hash.txt out.txt
 
 This error comes up because in my script, I only grep numbers of length 3 and above, doing less than that results in me taking random numbers in the john output which we don't need.
 
-once the script starts running again, you will come across the script stopping or the script again throwing the `unzip --help` page. This means you have reached the end of the unzipping and need just one more unzip.
+Once the script starts running again, you will come across the script stopping or the script again throwing the `unzip --help` page. This means you have reached the end of the unzipping and need just one more unzip.
 
 This will be the 6969.zip (nice) and you can use these commands to get the password for the last zip:
 ```
