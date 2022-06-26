@@ -9,7 +9,7 @@ Lets start with an nmap scan of the target IP, which will look something like th
 nmap -sV -Pn -v <TARGET_IP>
 ```
 
-![Image](/images/1.png)
+![Image](images/1.png)
 
 We see that we have 6 ports open, where `http-proxy` and `http` seem interesting. Open the target IP on your browser like this: `<TARGET_IP>:3333`
 
@@ -31,7 +31,7 @@ We see that we get the following hits:
 ```
 Other than the last one, everything else seems pretty standard. Lets check out `/internal` first:
 
-![Image](/images/2.png)
+![Image](images/2.png)
 
 Upload forms generally are an attack vector that we can use to use the Unrestricted File Upload exploit (As stated by OWASP)
 
@@ -41,17 +41,17 @@ A good way to fuzz upload forms, is through BurpSuite, we can capture the upload
 
 Your Proxy tab should look like this:
 
-![Image](/images/3.png)
+![Image](images/3.png)
 
 Right-click and send the packet to Intruder, and add your target to look something like this:
 
-![Image](/images/4.png)
+![Image](images/4.png)
 
 Use the wordlist I provided above as the payload and we can start the attack. (Make sure to disable URL encode in the options tab)
 
 Once that is concluded, we can see in the below picture that only `.phtml` gets accepted:
 
-![Image](/images/5.png)
+![Image](images/5.png)
 
 .phtml is a file extension that we can use to write PHP code. We can make a reverse shell payload in PHP and try to execute it on the website. You can get a PHP payload from this website and use the .phtml extension on it: https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php (Replace the IP and port in the above script and save it)
 
