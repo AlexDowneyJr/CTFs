@@ -58,7 +58,7 @@ We can look up what CPFR and CPTO does in this website: http://www.proftpd.org/d
 Now, we have to look into where we can actually place our copied file to. We can use the NFS here to mount a directory and try to get the id_rsa but we still need to figure out where the NFS is set up. So we use nmap to see if we can find the filepath:
 
 ```
-nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount
+nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount <TARGET_IP>
 ```
 
 We see that the NFS mount is the `/var` directory. So we have found our destination.
