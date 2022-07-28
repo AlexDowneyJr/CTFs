@@ -3,6 +3,8 @@ Vulnversity
 
 Vulnversity is a nice straightforward CTF that emulates basic know-how of getting access to a system and then escalating your priviledge. Quite enjoyable to say the least, just needs you to understand some underlying code.
 
+## Enumeration
+
 Lets start with an nmap scan of the target IP, which will look something like this:
 
 ```vim
@@ -33,6 +35,8 @@ Other than the last one, everything else seems pretty standard. Lets check out `
 
 ![Image](images/2.png)
 
+## Exploit
+
 Upload forms generally are an attack vector that we can use to use the Unrestricted File Upload exploit (As stated by OWASP)
 
 When you try to upload a file, you will be an "Extension not allowed" error. This means that we have to fuzz this upload form to see which extension can be uploaded. A wordlist you can use for this can be found here: https://github.com/xmendez/wfuzz/blob/master/wordlist/general/extensions_common.txt
@@ -53,7 +57,7 @@ Once that is concluded, we can see in the below picture that only `.phtml` gets 
 
 ![Image](images/5.png)
 
-.phtml is a file extension that we can use to write PHP code. We can make a reverse shell payload in PHP and try to execute it on the website. You can get a PHP payload from this website and use the .phtml extension on it: https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php (Replace the IP and port in the above script and save it)
+`.phtml` is a file extension that we can use to write PHP code. We can make a reverse shell payload in PHP and try to execute it on the website. You can get a PHP payload from this website and use the .phtml extension on it: https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php (Replace the IP and port in the above script and save it)
 
 We have a reverse shell payload that we can upload to the website, so we can go ahead and upload it, start a listener with the following command:
 ```vim
@@ -65,6 +69,8 @@ On your listener, we can see that we have recieved a reverse shell. I like to us
 ```vim
 python -c 'import pty;pty.spawn("/bin/bash")'
 ```
+
+## Priv-Esc
 
 On typing `ls`, we can see that we are in the `/` directory. From here on, we can explore the home directory, find the user `bill` and the user flag in: `/home/bill/user.txt`
 
