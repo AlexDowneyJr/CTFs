@@ -1,11 +1,15 @@
 PickleRick
 ==========
 
-'ll be honest, I never watched rick and morty and I have no idea why THM is addicted to making their references to a point that they have a whole CTF named after it, but I digress, lets figure this one out.
+I'll be honest, I never watched rick and morty and I have no idea why THM is addicted to making their references to a point that they have a whole CTF named after it, but I digress, lets figure this one out.
+
+This CTF focusses on Remote Code Execution and Broken Access Control.
+
+## Enumeration
 
 We start with looking at the source code and find this bit of info:
 
-```
+```html
 <!--
 
     Note to self, remember username!
@@ -37,6 +41,8 @@ We move on to login.php and use the username from the source code and the `/robo
 This is the portal.php that gobuster hit earlier and we can see that this has a command line that we can use.
 Clicking on anything other than the commands page gives you nothing as you don't have admin access.
 
+## Exploit
+
 There are a couple ways you can go to solve this ctf from here, but I'll show you the one that made the most sense with me.
 
 Using `ls` on the CLI gives us this output:
@@ -55,7 +61,9 @@ Now we have a reverse shell, which makes this challenge way more convenient
 
 (This one is a personal preference but you can use this command for a cli that can be used to fool sudo: `python -c 'import pty; pty.spawn("/bin/bash")'`)
 
-The second ingredient can be found in /home/rick
+The second ingredient can be found in `/home/rick`
+
+## Priv-Esc
 
 The third ingredient is very tricky as you are left to figure out where it is, usually some value comes out of getting root access, so we check if we have root access by using `sudo -l` :
 
