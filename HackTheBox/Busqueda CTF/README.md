@@ -23,7 +23,7 @@ Service Info: Host: searcher.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Looking into the web app, There is a github link in the source code along with the version number of the application being used:
 
-[Image](https://github.com/AlexDowneyJr/CTFs/blob/main/HackTheBox/Busqueda%20CTF/images/1.png)
+[](https://github.com/AlexDowneyJr/CTFs/blob/main/HackTheBox/Busqueda%20CTF/images/1.png)
 
 The Github link takes us to a repository for a Python library called Searchor, which is used for web scraping, obtaining information on an topic, and generating search query URLs. Looking back into the target web app, we can see a `/search` endpoint which generates search query URLs for multiple search engines.
 
@@ -232,7 +232,7 @@ We can see there are database credentials present, however I was unable to acces
 
 The administrator account has a `Scripts` repository which includes the code for the `system-checkup.py`.  
 
-[Image](https://github.com/AlexDowneyJr/CTFs/blob/main/HackTheBox/Busqueda%20CTF/images/1.png)
+[](https://github.com/AlexDowneyJr/CTFs/blob/main/HackTheBox/Busqueda%20CTF/images/1.png)
 
 `full-checkup` functionality is executing a file called `full-checkup.sh`. The vulnerability exists because instead of using a full path, the script uses `./` which checks the current working directory for the file. This lets any file called `full-checkup.sh` in the current working directory execute code.
 
